@@ -1,0 +1,6 @@
+{
+  "name": "VitaSync: Emergency Blood Redistribution",
+  "description": "Operational emergency blood-inventory redistribution engine with multi-criteria optimization, synthetic ISBT-128 barcode verification, and ResQtech priority corridor simulation.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

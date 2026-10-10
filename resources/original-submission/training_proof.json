@@ -1,0 +1,165 @@
+{
+  "project": "VitaSync synthetic emergency inventory demo v2",
+  "data_mode": "SURROGATE",
+  "data_is_real": false,
+  "data_source": "SURROGATE (fake, schema-matched)",
+  "seed": 42,
+  "data_rows": 1827,
+  "date_min": "2020-01-01",
+  "date_max": "2024-12-31",
+  "target": "PredictedBloodDemand",
+  "features": [
+    "DayOfWeek",
+    "Month",
+    "Population",
+    "Events",
+    "HistoricalBloodUsage",
+    "HospitalAdmissions",
+    "BloodDonorsAvailable",
+    "Temperature"
+  ],
+  "split_rows": {
+    "train": 1278,
+    "validation": 274,
+    "test": 275
+  },
+  "chosen_rf_config": {
+    "min_samples_leaf": 5,
+    "max_features": 0.6
+  },
+  "forecast_metrics": {
+    "validation_random_forest": {
+      "MAE": 9.631501235640398,
+      "RMSE": 11.985616127850165,
+      "R2": 0.550976380226767
+    },
+    "validation_naive_historical_usage": {
+      "MAE": 21.797189781021896,
+      "RMSE": 26.94370388786739,
+      "R2": -1.269149199410593
+    },
+    "test_random_forest": {
+      "MAE": 10.22091309148995,
+      "RMSE": 12.97574159514788,
+      "R2": 0.5071887194827867
+    },
+    "test_naive_historical_usage": {
+      "MAE": 22.662509090909094,
+      "RMSE": 27.73038864101652,
+      "R2": -1.250754755445822
+    },
+    "test_train_mean": {
+      "MAE": 14.115905676483145,
+      "RMSE": 18.96171422958666,
+      "R2": -0.05237726694117972
+    }
+  },
+  "model_file_sha256": "e35ee9947bd5698afcb67ef3658651c42ebc7a214767ef93185d088792bde33c",
+  "priority_queue_order": [
+    "SIM-101",
+    "SIM-103",
+    "SIM-102"
+  ],
+  "route_recommendations": [
+    {
+      "request_id": "SIM-101",
+      "score": 0.893,
+      "destination": "Site-C",
+      "units": 5,
+      "deadline_minutes": 12,
+      "simulated_source": "Depot-A",
+      "route": [
+        "Depot-A",
+        "Site-B",
+        "Site-C"
+      ],
+      "simulated_eta_min": 28,
+      "arrival_feasible": false,
+      "deadline_slack_min": -16,
+      "reserved": false,
+      "status": "LATE_ROUTE_REVIEW",
+      "note": "Nearest full-quantity source arrives 16 min after the deadline; stock NOT reserved."
+    },
+    {
+      "request_id": "SIM-103",
+      "score": 0.526,
+      "destination": "Site-D",
+      "units": 3,
+      "deadline_minutes": 40,
+      "simulated_source": "Site-D",
+      "route": [
+        "Site-D"
+      ],
+      "simulated_eta_min": 0,
+      "arrival_feasible": true,
+      "deadline_slack_min": 40,
+      "reserved": true,
+      "status": "LOCAL_FULFILLMENT_REVIEW_REQUIRED",
+      "note": "Local stock covers the request; no transfer route is involved."
+    },
+    {
+      "request_id": "SIM-102",
+      "score": 0.439,
+      "destination": "Site-B",
+      "units": 2,
+      "deadline_minutes": 25,
+      "simulated_source": "Site-B",
+      "route": [
+        "Site-B"
+      ],
+      "simulated_eta_min": 0,
+      "arrival_feasible": true,
+      "deadline_slack_min": 25,
+      "reserved": true,
+      "status": "LOCAL_FULFILLMENT_REVIEW_REQUIRED",
+      "note": "Local stock covers the request; no transfer route is involved."
+    }
+  ],
+  "network": {
+    "nodes": 4,
+    "edges": 5,
+    "connected": true
+  },
+  "checks": {
+    "data_has_rows_and_dates": true,
+    "no_duplicate_dates": true,
+    "all_expected_features_present": true,
+    "split_is_chronological": true,
+    "split_covers_all_rows": true,
+    "no_identifier_features": true,
+    "metrics_are_finite": true,
+    "rf_beats_naive_on_test_rmse": true,
+    "rf_beats_train_mean_on_test_rmse": true,
+    "chart_saved": true,
+    "graph_connected": true,
+    "route_A_to_C_is_28_via_B": true,
+    "networkx_matches_own_dijkstra_all_pairs": true,
+    "heap_order_equals_independent_sort": true,
+    "invalid_urgency_rejected": true,
+    "score_increases_with_urgency": true,
+    "scores_within_0_1": true,
+    "tie_break_is_earlier_creation_then_id": true,
+    "one_recommendation_per_request": true,
+    "all_statuses_are_review_statuses": true,
+    "no_site_oversubscribed": true,
+    "ledger_never_negative": true,
+    "original_mock_inventory_untouched": true,
+    "late_route_status_LATE_ROUTE_REVIEW": true,
+    "late_route_not_marked_feasible": true,
+    "late_route_does_not_reserve_stock": true,
+    "local_fulfillment_SIM-102": true,
+    "local_fulfillment_SIM-103": true,
+    "on_time_transfer_is_feasible_with_positive_slack": true,
+    "insufficient_stock_gives_manual_review": true,
+    "duplicate_stock_not_double_reserved": true,
+    "recommend_does_not_mutate_input_inventory": true,
+    "joblib_roundtrip_identical_predictions": true,
+    "saved_feature_schema_matches": true,
+    "artifacts_exist_json_model_chart": true
+  },
+  "all_checks_pass": true,
+  "rl": {
+    "status": "NOT_RUN_YET"
+  },
+  "disclaimer": "Synthetic educational prototype. Not for clinical use, triage, compatibility, release, or real inventory control."
+}
