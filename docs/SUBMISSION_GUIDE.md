@@ -25,7 +25,8 @@ If the live site or an interaction is unavailable, switch to repository screensh
 
 ## Resource map
 
-- `resources/original-submission/Research_paper.pdf`: VitaSync research proposal, experiment summary, limitations, and references.
+- `resources/original-submission/Research_paper.docx`: Word-format, page-layout-preserving copy of the six-page VitaSync research paper. It uses high-resolution page images to retain the original layout.
+- `resources/original-submission/Research_paper.pdf`: original PDF version of the research proposal, experiment summary, limitations, and references.
 - `resources/original-submission/VitaSync_Emergency_Inventory_Demo_Corrected.ipynb`: runnable notebook source.
 - `resources/original-submission/training_proof.json`: machine-readable synthetic notebook checks/results.
 - `resources/original-submission/PROOF_OF_WORKING.md`: environment and execution notes.

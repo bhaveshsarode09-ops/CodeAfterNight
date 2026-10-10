@@ -12,6 +12,7 @@ VitaSync is a research and software prototype for coordinating fictional emergen
 - [Algorithm explanations, equations, correctness arguments, and worked execution](docs/ALGORITHMS_AND_EXECUTION.md)
 - [Evidence, reproducibility, and validation status](docs/EVIDENCE_AND_LIMITATIONS.md)
 - [Submission and demo guide](docs/SUBMISSION_GUIDE.md)
+- [Research paper (Word document)](resources/original-submission/Research_paper.docx) — page-layout-preserving copy
 - [Original research paper (PDF)](resources/original-submission/Research_paper.pdf)
 - [Original corrected notebook](resources/original-submission/VitaSync_Emergency_Inventory_Demo_Corrected.ipynb)
 - [Original proof of working](resources/original-submission/PROOF_OF_WORKING.md)
@@ -36,7 +37,7 @@ The supplied paper refers to a separate application walkthrough but does not pro
 | `server/optimizer.ts` | Deterministic feasible-candidate scoring and allocation logic (heuristic, not a MILP solver) |
 | `server/tests/` | Automated backend, optimizer, scanner, transport, and batch/traffic tests |
 | `docs/` | Existing API/data/build docs plus submission algorithm, evidence, and demo guides |
-| `resources/original-submission/` | Supplied paper, separate report, notebook, proof JSON/Markdown, and forecast chart |
+| `resources/original-submission/` | Research paper as Word and PDF, separate report, notebook, proof JSON/Markdown, and forecast chart |
 | `data/vitasync.db` | Seeded fictional demo database; reset using the demo reset endpoint/UI |
 
 ## Demonstrated capabilities
